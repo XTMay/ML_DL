@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Cross Validation Diagrams</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  h2 { margin-top: 40px; }
+  .diagram { margin: 20px 0; }
+  svg rect { stroke: #000; fill: #ddd; }
+  svg text { font-size: 12px; dominant-baseline: middle; }
+</style>
+</head>
+<body>
+<h1>Machine Learning Cross Validation Diagrams</h1>
+
+<h2>Stratified K-Fold</h2>
+<div class="diagram">
+<svg width="600" height="120">
+  <!-- 3 folds example -->
+  <text x="10" y="20">Fold 1</text>
+  <rect x="70" y="10" width="150" height="20" fill="#ccc" />
+  <rect x="220" y="10" width="70" height="20" fill="#f99" />
+  <rect x="290" y="10" width="150" height="20" fill="#ccc" />
+
+  <text x="10" y="60">Fold 2</text>
+  <rect x="70" y="50" width="70" height="20" fill="#ccc" />
+  <rect x="140" y="50" width="150" height="20" fill="#f99" />
+  <rect x="290" y="50" width="70" height="20" fill="#ccc" />
+
+  <text x="10" y="100">Fold 3</text>
+  <rect x="70" y="90" width="150" height="20" fill="#ccc" />
+  <rect x="220" y="90" width="70" height="20" fill="#ccc" />
+  <rect x="290" y="90" width="150" height="20" fill="#f99" />
+</svg>
+</div>
+
+<h2>Leave-One-Out (LOOCV)</h2>
+<div class="diagram">
+<svg width="600" height="160">
+  <!-- 5 samples example -->
+  <text x="10" y="20">Fold 1</text>
+  <rect x="70" y="10" width="20" height="20" fill="#f99" />
+  <rect x="100" y="10" width="20" height="20" fill="#ccc" />
+  <rect x="130" y="10" width="20" height="20" fill="#ccc" />
+  <rect x="160" y="10" width="20" height="20" fill="#ccc" />
+  <rect x="190" y="10" width="20" height="20" fill="#ccc" />
+
+  <text x="10" y="50">Fold 2</text>
+  <rect x="70" y="40" width="20" height="20" fill="#ccc" />
+  <rect x="100" y="40" width="20" height="20" fill="#f99" />
+  <rect x="130" y="40" width="20" height="20" fill="#ccc" />
+  <rect x="160" y="40" width="20" height="20" fill="#ccc" />
+  <rect x="190" y="40" width="20" height="20" fill="#ccc" />
+
+  <text x="10" y="80">Fold 3</text>
+  <rect x="70" y="70" width="20" height="20" fill="#ccc" />
+  <rect x="100" y="70" width="20" height="20" fill="#ccc" />
+  <rect x="130" y="70" width="20" height="20" fill="#f99" />
+  <rect x="160" y="70" width="20" height="20" fill="#ccc" />
+  <rect x="190" y="70" width="20" height="20" fill="#ccc" />
+
+  <text x="10" y="110">Fold 4</text>
+  <rect x="70" y="100" width="20" height="20" fill="#ccc" />
+  <rect x="100" y="100" width="20" height="20" fill="#ccc" />
+  <rect x="130" y="100" width="20" height="20" fill="#ccc" />
+  <rect x="160" y="100" width="20" height="20" fill="#f99" />
+  <rect x="190" y="100" width="20" height="20" fill="#ccc" />
+
+  <text x="10" y="140">Fold 5</text>
+  <rect x="70" y="130" width="20" height="20" fill="#ccc" />
+  <rect x="100" y="130" width="20" height="20" fill="#ccc" />
+  <rect x="130" y="130" width="20" height="20" fill="#ccc" />
+  <rect x="160" y="130" width="20" height="20" fill="#ccc" />
+  <rect x="190" y="130" width="20" height="20" fill="#f99" />
+</svg>
+</div>
+
+<h2>Time Series Cross Validation（Rolling Window）</h2>
+<div class="diagram">
+<svg width="650" height="150">
+  <text x="10" y="20">Fold 1</text>
+  <rect x="90" y="10" width="200" height="20" fill="#ccc" />
+  <rect x="300" y="10" width="80" height="20" fill="#f99" />
+
+  <text x="10" y="60">Fold 2</text>
+  <rect x="90" y="50" width="260" height="20" fill="#ccc" />
+  <rect x="360" y="50" width="80" height="20" fill="#f99" />
+
+  <text x="10" y="100">Fold 3</text>
+  <rect x="90" y="90" width="320" height="20" fill="#ccc" />
+  <rect x="410" y="90" width="80" height="20" fill="#f99" />
+</svg>
+</div>
+
+<h2>Nested Cross Validation</h2>
+<div class="diagram">
+<svg width="700" height="200">
+  <!-- Outer loops -->
+  <text x="10" y="20">Outer Fold 1</text>
+  <rect x="120" y="10" width="200" height="20" fill="#ccc" />
+  <rect x="330" y="10" width="80" height="20" fill="#f99" />
+
+  <text x="10" y="60">Outer Fold 2</text>
+  <rect x="120" y="50" width="260" height="20" fill="#ccc" />
+  <rect x="390" y="50" width="80" height="20" fill="#f99" />
+
+  <text x="10" y="100">Outer Fold 3</text>
+  <rect x="120" y="90" width="320" height="20" fill="#ccc" />
+  <rect x="450" y="90" width="80" height="20" fill="#f99" />
+
+  <text x="10" y="150">Inner CV happens inside each grey block → Hyperparam tuning</text>
+</svg>
+</div>
+
+<h2>Shuffle Split / Random Split</h2>
+<div class="diagram">
+<svg width="600" height="100">
+  <text x="10" y="20">Split 1</text>
+  <rect x="90" y="10" width="300" height="20" fill="#ccc" />
+  <rect x="390" y="10" width="120" height="20" fill="#f99" />
+
+  <text x="10" y="60">Split 2 (different random shuffle)</text>
+  <rect x="90" y="50" width="250" height="20" fill="#ccc" />
+  <rect x="340" y="50" width="170" height="20" fill="#f99" />
+</svg>
+</div>
+
+<h2>Train / Validation / Test Split</h2>
+<div class="diagram">
+<svg width="650" height="60">
+  <rect x="20" y="10" width="250" height="30" fill="#ccc" />
+  <rect x="270" y="10" width="180" height="30" fill="#f99" />
+  <rect x="450" y="10" width="150" height="30" fill="#9cf" />
+  <text x="110" y="27">Train</text>
+  <text x="350" y="27">Validation</text>
+  <text x="520" y="27">Test</text>
+</svg>
+</div>
+
+<h2>Hyperparameter Tuning + Cross Validation</h2>
+<div class="diagram">
+<svg width="750" height="200">
+  <text x="10" y="20">Grid / Random Search → For each hyperparameter set:</text>
+
+  <text x="10" y="60">CV Fold 1</text>
+  <rect x="120" y="50" width="200" height="20" fill="#ccc" />
+  <rect x="330" y="50" width="80" height="20" fill="#f99" />
+
+  <text x="10" y="100">CV Fold 2</text>
+  <rect x="120" y="90" width="260" height="20" fill="#ccc" />
+  <rect x="390" y="90" width="80" height="20" fill="#f99" />
+
+  <text x="10" y="140">CV Fold 3</text>
+  <rect x="120" y="130" width="320" height="20" fill="#ccc" />
+  <rect x="450" y="130" width="80" height="20" fill="#f99" />
+
+  <text x="10" y="180">→ Compute mean score → Select best hyperparameters</text>
+</svg>
+</div>
+
+</body>
+</html>
